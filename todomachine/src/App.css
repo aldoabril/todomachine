@@ -1,0 +1,15 @@
+header {
+  text-align: center;
+  background-color: #ccc;
+}
+
+main {
+  margin: 0px auto;
+  border: 1px solid #ccc;
+  width: 50%;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+}

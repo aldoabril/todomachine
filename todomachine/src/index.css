@@ -1,0 +1,21 @@
+/* Selector por etiqueta */
+* {
+  margin:0;
+  padding:0;
+}
+body {
+  font-family: 'Monserrat', Arial, Helvetica, sans-serif;
+  margin:0;
+  padding:0;
+  
+}
+/*Selector por ID*/
+#root {
+  /* position: relative;
+  min-height: 100vh; */
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid;
+
+}
+
