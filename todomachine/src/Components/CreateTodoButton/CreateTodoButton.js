@@ -1,9 +1,9 @@
 import React from "react";
 import "./CreateTodoButton.css";
-export function CreateTodoButton() {
+export function CreateTodoButton({ onClick }) {
   return (
     <div className="CreateTodoButton">
-      <button>+</button>
+      <button onClick={onClick}>+</button>
     </div>
   );
 }

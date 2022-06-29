@@ -1,9 +1,9 @@
 import React from "react";
 
-export function TodoCounter() {
+export function TodoCounter({ completedTasks, totalTasks }) {
   return (
     <div>
-      <h2>You have completed 2 task of 3</h2>
+      <h2>{`You have completed ${completedTasks} task of ${totalTasks}`}</h2>
     </div>
   );
 }

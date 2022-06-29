@@ -8,6 +8,7 @@ li {
     align-items: center;
     padding-left: 10px;
     display: flex;
+    justify-content: space-around;
 }
 
 li input {
