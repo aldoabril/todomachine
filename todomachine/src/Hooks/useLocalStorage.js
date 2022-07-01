@@ -1,11 +1,11 @@
 import React from "react";
 
-export const useLocalStorage = (itemName) => {
+export const useLocalStorage = (itemName, initialValue) => {
   const localStorageItems = localStorage.getItem(itemName);
-  let parseItems = [];
+  let parseItems = initialValue;
 
   if (!localStorageItems) {
-    localStorage.setItem(itemName, JSON.stringify([]));
+    localStorage.setItem(itemName, JSON.stringify(initialValue));
   } else {
     parseItems = JSON.parse(localStorageItems);
   }

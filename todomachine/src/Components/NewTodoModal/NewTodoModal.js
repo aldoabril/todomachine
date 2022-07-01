@@ -1,28 +1,16 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import "./NewTodoModal.css";
-import { TodoContext } from "../../Context/TodoContext";
-export function NewTodoModal(props) {
-  const { todos, setTodos } = useContext(TodoContext);
-  const [item, setItem] = useState("");
-  const handleAddItem = () => {
-    setTodos([...todos, { text: item, completed: false }]);
-  };
-  // value={item}
-  //       onChangeItem={(e) => setItem(e.target.value)}
-  //       onAddItem={handleAddItem}
 
-  if (!props.isOpen) {
+export function NewTodoModal({ isOpen, onClose, onAddTodo }) {
+  const [item, setItem] = useState("");
+
+  if (!isOpen) {
     return null;
   }
   return ReactDOM.createPortal(
     <div className="modal">
-      <input
-        type="button"
-        className="close"
-        value="X"
-        onClick={props.onClose}
-      />
+      <input type="button" className="close" value="X" onClick={onClose} />
       <div className="modal-content">
         <input
           type="text"
@@ -31,7 +19,7 @@ export function NewTodoModal(props) {
         />
         <input
           type="button"
-          onClick={handleAddItem}
+          onClick={() => onAddTodo(item)}
           className="mybutton"
           value="Add Item"
         />
