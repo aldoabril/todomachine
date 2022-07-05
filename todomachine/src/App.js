@@ -21,6 +21,8 @@ export function App() {
     addTodo,
     isOpen,
     setIsOpen,
+    loading,
+    error
   } = useTodos();
   return (
     <>
@@ -39,7 +41,16 @@ export function App() {
           />
         </nav>
         <section>
-          <TodoList>
+          <TodoList
+          error={error}
+          loading={loading}
+          todos={todos}
+          onError={()=><TodosError/>}
+          onLoading={() =><TodosLoading/>}
+          onEmptyTodos={() =><TodosEmpty/>}
+          render={(todo)=><TodoItem }
+
+          >
             {filteredTodos.map((item, index) => (
               <TodoItem
                 key={index}

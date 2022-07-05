@@ -18,7 +18,7 @@ export const useFindTodos = (todos) => {
 };
 
 export function useTodos() {
-  const [todos, saveTodos] = useLocalStorage("TODOS_V1");
+  const { todos, saveTodos, loading, error } = useLocalStorage("TODOS_V1");
   const [query, setQuery, filteredTodos] = useFindTodos(todos);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,5 +52,7 @@ export function useTodos() {
     addTodo,
     isOpen,
     setIsOpen,
+    loading,
+    error,
   };
 }
