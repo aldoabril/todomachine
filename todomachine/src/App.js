@@ -6,6 +6,9 @@ import { TodoItem } from "./Components/TodoItem/TodoItem";
 import { CreateTodoButton } from "./Components/CreateTodoButton/CreateTodoButton";
 import { NewTodoModal } from "./Components/NewTodoModal/NewTodoModal";
 import { useTodos } from "./Hooks/useTodos.js";
+import { TodosError } from "./Components/TodosError";
+import { TodosEmpty } from "./Components/TodosEmpty";
+import { TodosLoading } from "./Components/TodosLoading";
 import "./App.css";
 
 export function App() {
@@ -22,7 +25,7 @@ export function App() {
     isOpen,
     setIsOpen,
     loading,
-    error
+    error,
   } = useTodos();
   return (
     <>
@@ -42,25 +45,14 @@ export function App() {
         </nav>
         <section>
           <TodoList
-          error={error}
-          loading={loading}
-          todos={todos}
-          onError={()=><TodosError/>}
-          onLoading={() =><TodosLoading/>}
-          onEmptyTodos={() =><TodosEmpty/>}
-          render={(todo)=><TodoItem }
-
-          >
-            {filteredTodos.map((item, index) => (
-              <TodoItem
-                key={index}
-                item={item}
-                index={index}
-                onCompleteTodo={completeTodo}
-                onDeleteTodo={deleteTodo}
-              />
-            ))}
-          </TodoList>
+            error={error}
+            loading={loading}
+            todos={filteredTodos}
+            onError={() => <TodosError />}
+            onLoading={() => <TodosLoading />}
+            onEmptyTodos={() => <TodosEmpty />}
+            render={(todo) => <TodoItem />}
+          />
         </section>
       </main>
       <NewTodoModal
