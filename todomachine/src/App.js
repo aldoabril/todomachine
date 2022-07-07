@@ -48,10 +48,18 @@ export function App() {
             error={error}
             loading={loading}
             todos={filteredTodos}
-            onError={() => <TodosError />}
+            onError={(error) => <TodosError error={error} />}
             onLoading={() => <TodosLoading />}
             onEmptyTodos={() => <TodosEmpty />}
-            render={(todo) => <TodoItem />}
+            render={(todo, index) => (
+              <TodoItem
+                key={index}
+                text={todo.text}
+                index={index}
+                onCompleteTodo={completeTodo}
+                onDeleteTodo={deleteTodo}
+              />
+            )}
           />
         </section>
       </main>
