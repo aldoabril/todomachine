@@ -18,15 +18,20 @@ export const useFindTodos = (todos) => {
 };
 
 export function useTodos() {
-  const { items: todos, saveItems:saveTodos, loading, error } = useLocalStorage("TODOS_V1",[]);
+  const {
+    items: todos,
+    saveItems: saveTodos,
+    loading,
+    error,
+  } = useLocalStorage("TODOS_V1", []);
   const [query, setQuery, filteredTodos] = useFindTodos(todos);
   const [isOpen, setIsOpen] = useState(false);
 
   const completedTodos = todos.filter((item) => item.completed);
 
-  const completeTodo = (e, index) => {
+  const completeTodo = (checked, index) => {
     let localTodos = [...todos];
-    localTodos[index].completed = e.target.checked;
+    localTodos[index].completed = checked;
     saveTodos([...localTodos]);
   };
 

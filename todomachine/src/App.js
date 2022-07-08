@@ -48,18 +48,19 @@ export function App() {
           <TodoList
             error={error}
             loading={loading}
-            todos={todos}
+            todos={filteredTodos}
             onError={(error) => <TodosError error={error} />}
             onLoading={() => <TodosLoading />}
             onEmptyTodos={() => <TodosEmpty />}
             render={(todo, index) => (
-              
               <TodoItem
                 key={index}
                 text={todo.text}
                 index={index}
-                onCompleteTodo={completeTodo}
-                onDeleteTodo={deleteTodo}
+                onCompleteTodo={(checked, index) =>
+                  completeTodo(checked, index)
+                }
+                onDeleteTodo={(index) => deleteTodo(index)}
               />
             )}
           />
