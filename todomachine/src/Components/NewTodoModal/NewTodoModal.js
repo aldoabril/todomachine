@@ -18,9 +18,10 @@ export function NewTodoModal({ isOpen, onClose, onAddTodo }) {
           value={item}
         />
         <input
+
           type="button"
           onClick={() => onAddTodo(item)}
-          className="mybutton"
+          className="close"
           value="Add Item"
         />
       </div>

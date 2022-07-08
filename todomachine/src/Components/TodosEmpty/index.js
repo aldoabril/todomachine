@@ -1,5 +1,5 @@
 import React from "react";
 
 export const TodosEmpty = () => {
-  return <div>TodosEmpty</div>;
+  return <div>Ingresa tu primer todo</div>;
 };

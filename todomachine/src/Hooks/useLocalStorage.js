@@ -21,7 +21,7 @@ export const useLocalStorage = (itemName, initialValue) => {
         setError(error);
       }
     }, 2000);
-  });
+  },[]);
   const saveItems = (items) => {
     try {
       const stringifyItems = JSON.stringify(items);

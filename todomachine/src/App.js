@@ -27,6 +27,7 @@ export function App() {
     loading,
     error,
   } = useTodos();
+
   return (
     <>
       <header>
@@ -47,11 +48,12 @@ export function App() {
           <TodoList
             error={error}
             loading={loading}
-            todos={filteredTodos}
+            todos={todos}
             onError={(error) => <TodosError error={error} />}
             onLoading={() => <TodosLoading />}
             onEmptyTodos={() => <TodosEmpty />}
             render={(todo, index) => (
+              
               <TodoItem
                 key={index}
                 text={todo.text}
@@ -69,7 +71,7 @@ export function App() {
         onAddTodo={addTodo}
       />
       <footer>
-        <CreateTodoButton onClick={saveTodos}></CreateTodoButton>
+        <CreateTodoButton onClick={() => setIsOpen(true)}></CreateTodoButton>
       </footer>
     </>
   );
