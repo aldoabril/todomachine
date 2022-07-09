@@ -10,7 +10,7 @@ export function TodoList({
   onEmptyTodos,
   render,
 }) {
-  console.log("dentro de list", todos.length);
+ 
   if (loading) return onLoading();
   if (error) return onError();
   else if (!loading && todos.length === 0) return onEmptyTodos();

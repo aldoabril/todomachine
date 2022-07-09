@@ -9,6 +9,7 @@ import { useTodos } from "./Hooks/useTodos.js";
 import { TodosError } from "./Components/TodosError";
 import { TodosEmpty } from "./Components/TodosEmpty";
 import { TodosLoading } from "./Components/TodosLoading";
+import {TodoHeader} from "./Components/TodoHeader"
 import "./App.css";
 
 export function App() {
@@ -30,20 +31,21 @@ export function App() {
 
   return (
     <>
-      <header>
-        <h1>Welcome to Todo Machine</h1>
+      <TodoHeader loading={loading}>
+        {<h1 disabled={loading}>Welcome to Todo Machine</h1> }
         <TodoCounter
           completedTasks={completedTodos.length}
           totalTasks={todos.length}
         />
-      </header>
-      <main>
-        <nav>
+       
           <TodoSearch
             value={query}
             onChangeValue={(e) => setQuery(e.target.value)}
           />
-        </nav>
+       
+      </TodoHeader>
+      <main>
+        
         <section>
           <TodoList
             error={error}

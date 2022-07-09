@@ -4,3 +4,11 @@
     padding: 5px;
     box-sizing: border-box;
 }
+
+.buscar:focus {
+    outline-color: #61DAFA;
+}
+
+.buscar:disabled {
+    opacity: 25%;
+}
