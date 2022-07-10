@@ -1,6 +1,6 @@
 import React from "react";
 import "./TodoSearch.css";
-export function TodoSearch({ value, onChangeValue }) {
+export function TodoSearch({ value, onChangeValue, loading }) {
   return (
     <div>
       <input
@@ -9,6 +9,7 @@ export function TodoSearch({ value, onChangeValue }) {
         placeholder="Todo Buscar"
         value={value}
         onChange={onChangeValue}
+        disabled={loading}
       />
     </div>
   );
