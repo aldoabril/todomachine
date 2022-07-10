@@ -23,6 +23,7 @@ export function useTodos() {
     saveItems: saveTodos,
     loading,
     error,
+    setReloading,
   } = useLocalStorage("TODOS_V1", []);
   const [query, setQuery, filteredTodos] = useFindTodos(todos);
   const [isOpen, setIsOpen] = useState(false);
@@ -59,5 +60,6 @@ export function useTodos() {
     setIsOpen,
     loading,
     error,
+    setReloading,
   };
 }

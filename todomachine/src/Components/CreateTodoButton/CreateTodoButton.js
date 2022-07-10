@@ -3,7 +3,9 @@ import "./CreateTodoButton.css";
 export function CreateTodoButton({ onClick }) {
   return (
     <div className="CreateTodoButton">
-      <button onClick={onClick}>+</button>
+      <button className="addTodo" onClick={onClick}>
+        +
+      </button>
     </div>
   );
 }

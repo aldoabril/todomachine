@@ -4,6 +4,7 @@ import "./TodoList.css";
 export function TodoList({
   error,
   loading,
+  totalTodos,
   todos,
   onError,
   onLoading,
@@ -13,7 +14,7 @@ export function TodoList({
   console.log("dentro de list", todos.length);
   if (loading) return onLoading();
   if (error) return onError();
-  else if (!loading && todos.length === 0) return onEmptyTodos();
+  else if (!loading && totalTodos === 0) return onEmptyTodos();
 
   return <ul>{todos.map((item, index) => render(item, index))}</ul>;
 }

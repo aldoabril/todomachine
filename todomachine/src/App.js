@@ -9,6 +9,7 @@ import { useTodos } from "./Hooks/useTodos.js";
 import { TodosError } from "./Components/TodosError";
 import { TodosEmpty } from "./Components/TodosEmpty";
 import { TodosLoading } from "./Components/TodosLoading";
+import { ChangeAlertWithStorageListener } from "./Components/ChangeAlert";
 import "./App.css";
 
 export function App() {
@@ -26,6 +27,7 @@ export function App() {
     setIsOpen,
     loading,
     error,
+    setReloading,
   } = useTodos();
 
   return (
@@ -48,6 +50,7 @@ export function App() {
           <TodoList
             error={error}
             loading={loading}
+            totalTodos={todos.length}
             todos={filteredTodos}
             onError={(error) => <TodosError error={error} />}
             onLoading={() => <TodosLoading />}
@@ -74,6 +77,9 @@ export function App() {
       <footer>
         <CreateTodoButton onClick={() => setIsOpen(true)}></CreateTodoButton>
       </footer>
+      <ChangeAlertWithStorageListener
+        onChangeStorage={() => setReloading(true)}
+      />
     </>
   );
 }

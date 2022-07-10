@@ -4,6 +4,7 @@ export const useLocalStorage = (itemName, initialValue) => {
   const [items, setItems] = React.useState(initialValue);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState("");
+  const [reload, setReload] = React.useState(false);
   useEffect(() => {
     setTimeout(() => {
       try {
@@ -17,11 +18,12 @@ export const useLocalStorage = (itemName, initialValue) => {
         }
         setItems(parseItems);
         setLoading(false);
+        setReload(false);
       } catch (err) {
         setError(error);
       }
     }, 2000);
-  },[]);
+  }, [reload]);
   const saveItems = (items) => {
     try {
       const stringifyItems = JSON.stringify(items);
@@ -31,5 +33,5 @@ export const useLocalStorage = (itemName, initialValue) => {
       setError(err);
     }
   };
-  return { items, saveItems, loading, error };
+  return { items, saveItems, loading, error, setReload };
 };
