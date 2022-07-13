@@ -29,7 +29,8 @@ export function App() {
     setIsOpen,
     loading,
     error,
-    setReloading,
+    reload,
+    localStorageChanged
   } = useTodos();
 
   return (
@@ -59,6 +60,7 @@ export function App() {
             render={(todo, index) => (
               <TodoItem
                 key={index}
+                completed = {todo.completed}
                 text={todo.text}
                 index={index}
                 onCompleteTodo={(checked, index) =>
@@ -79,7 +81,9 @@ export function App() {
         <CreateTodoButton onClick={() => setIsOpen(true)}></CreateTodoButton>
       </footer>
       <ChangeAlertWithStorageListener
-        onChangeStorage={() => setReloading(true)}
+        loading={loading}
+        onChangeStorage={reload}
+        localStorageChanged ={localStorageChanged}
       />
     </>
   );

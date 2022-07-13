@@ -1,12 +1,13 @@
 import React from "react";
 import { withStorageListener } from "./withStorageListener";
 import "./styles.css";
-export const ChangeAlert = ({ show, toggleShow }) => {
-  if (show)
+export const ChangeAlert = ({ show, toggleShow, loading,localStorageChanged }) => {
+    if (show)
     return (
       <>
-        <div>Nuevo cambio!!</div>
-        <button onClick={() => toggleShow(false)}>Refrescar cambios</button>
+        
+        {!loading &&localStorageChanged && <div>Nuevo cambio!!</div>}
+        {loading && !localStorageChanged&&<div>Refrescando!!</div>}
       </>
     );
   else return null;

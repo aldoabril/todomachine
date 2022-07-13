@@ -10,7 +10,7 @@ export const withStorageListener = (WrappedComponent) => {
       }
     });
     return (
-      <WrappedComponent show={storageChange} toggleShow={setStorageChange} />
+      <WrappedComponent show={storageChange} toggleShow={setStorageChange} loading={props.loading}/>
     );
   };
 };
